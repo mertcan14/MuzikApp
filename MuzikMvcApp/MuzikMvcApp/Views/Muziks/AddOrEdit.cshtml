@@ -1,0 +1,55 @@
+﻿@model MuzikMvcApp.Models.Muzik
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div id="edit-page">
+    <div id="edit-form" class="row">
+        <div class="col-7">
+            <h2 class="text-center">Şarkı Ekle</h2>
+            <form asp-action="AddOrEdit" asp-route-id="@Model.Id" onsubmit="return jQueryAjaxPost(this);">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="SarkiIsmi" class="control-label"></label>
+                    <input asp-for="SarkiIsmi" class="form-control" />
+                    <span asp-validation-for="SarkiIsmi" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AlbumIsmi" class="control-label"></label>
+                    <input asp-for="AlbumIsmi" class="form-control" />
+                    <span asp-validation-for="AlbumIsmi" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Artist" class="control-label"></label>
+                    <input asp-for="Artist" class="form-control" />
+                    <span asp-validation-for="Artist" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CikisYili" class="control-label"></label>
+                    <input asp-for="CikisYili" class="form-control" />
+                    <span asp-validation-for="CikisYili" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Ekle" class="btn btn-primary btn-block" />
+                </div>
+                <hr />
+                <div>
+                    <a class="btn btn-danger btn-block" asp-action="Index">Listeye Dön</a>
+                </div>
+                <hr />
+            </form>
+        </div>
+        <div class="col-1 backmaverick">
+
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

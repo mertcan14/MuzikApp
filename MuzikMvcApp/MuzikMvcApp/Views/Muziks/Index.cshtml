@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MuzikMvcApp.Models.Muzik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div >
+    <div>
+        <h1>Şarkılar</h1>
+    </div>
+</div>
+
+
+<div id="view_all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
+
